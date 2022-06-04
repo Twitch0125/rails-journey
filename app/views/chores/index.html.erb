@@ -1,0 +1,7 @@
+<h1>Current Chores</h1>
+<ul>
+    <% @chores.each do |chore| %>
+        <li><%= link_to chore.title,chore %> <%= link_to 'edit',edit_chore_path(chore) %> </li>
+    <% end %>
+    <%= link_to 'New Chore',new_chore_path %>
+</ul>
