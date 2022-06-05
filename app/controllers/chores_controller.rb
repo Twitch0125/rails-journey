@@ -42,6 +42,6 @@ class ChoresController < ApplicationController
   private
 
   def chore_params
-    params.require(:chore).permit(:title, :description)
+    params.require(:chore).permit(:title, :description, :status)
   end
 end

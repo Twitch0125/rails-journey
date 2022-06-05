@@ -1,0 +1,15 @@
+<%= form_with model: [@chore, @chore.comments.build] do |form| %>
+  <p>
+    <div>
+      <%= form.label :commenter, class: 'label' %>
+      <%= form.text_field :commenter, class: 'input' %>
+    </div>
+  </p>
+  <div>
+    <%= form.label :body, class: 'label' %>
+    <%= form.text_area :body, class: 'input' %>
+    <%= form.label :status, class: 'label' %>
+    <%= form.select :status, %w[public private archived], selected: 'public', class:'public' %>
+    <%= form.submit "Submit", class: 'btn' %>
+  </div>
+<% end %>

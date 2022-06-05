@@ -1,24 +1,32 @@
-<%= form_with model: chore do |form| %>
-<div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<%= form_with class:'space-y-4', model: chore do |form| %>
+  <div>
+    <%= form.label :title, class: 'label' %>
+    <%= form.text_field :title, class: 'input' %>
     <% chore.errors.full_messages_for(:title).each do |message| %>
-    <div>
-        <%= message %>
-    <div>
+      <div><%= message %></div>
     <% end %>
-</div>
-<div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-     <% chore.errors.full_messages_for(:description).each do |message| %>
-    <div>
-        <%= message %>
-    <div>
+  </div>
+  <div>
+    <%= form.label :description, class: 'label' %>
+    <%= form.text_area :description, class: 'input' %>
+    <% chore.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
     <% end %>
-</div>
-<div>
-    <%= form.submit %>
-</div>
-
+  </div>
+  <div>
+    <%= form.label :status, class:'label' %>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+  </div>
+  <%= form.submit 'submit', class:'btn -primary' %>
+  <% if chore.errors.full_messages.length > 0 %>
+    <div class="bg-red-100 text-red-900 p-3 rounded-lg mt-3">
+      <ul class="list-disc list-inside">
+        <% chore.errors.full_messages.each do |message| %>
+          <li class="">
+            <%= message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>

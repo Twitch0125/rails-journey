@@ -1,7 +1,17 @@
 <h1>Current Chores</h1>
+<i>there are <%= Chore.public_count %> chore(s) to do</i>
 <ul>
-    <% @chores.each do |chore| %>
-        <li><%= link_to chore.title,chore %> <%= link_to 'edit',edit_chore_path(chore) %> </li>
+  <% @chores.each do |chore| %>
+    <% unless chore.archived? %>
+      <li><%= link_to chore.title,chore %> <%= link_to 'edit',edit_chore_path(chore), class: "link" %> </li>
+      <p class="text-xs">
+        <% if chore.comments.public_count > 0 %>
+          <%= chore.comments.public_count %>
+        <% end %>
+      </p>
     <% end %>
-    <%= link_to 'New Chore',new_chore_path %>
+  <% end %>
 </ul>
+<div>
+  <%= link_to 'New Chore',new_chore_path, class: "btn -primary" %>
+</div>

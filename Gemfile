@@ -71,8 +71,9 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'better_html', require: false
 gem 'erb_lint', require: false
 gem 'rubocop', require: false
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
-gem 'better_html', require: false
+gem 'tailwindcss-rails', '~> 2.0'

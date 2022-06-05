@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_04_162241) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_05_171255) do
   create_table "chores", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -24,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_04_162241) do
     t.integer "chore_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["chore_id"], name: "index_comments_on_chore_id"
   end
 
